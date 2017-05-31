@@ -9,6 +9,34 @@
  */
 angular.module('cirrusAppApp')
   .controller('MainCtrl', function ($scope, $location) {
+    $scope.lowerBound = 0;
+    $scope.upperBound = 0;
+    $scope.solution = '';
+    $scope.error = '';
+    $scope.isError = false;
+    $scope.isSuccess = false;
+
+    $scope.computePalindromeUtil = function() {
+      if($scope.lowerBound <= $scope.upperBound) {
+        $scope.error = '';
+        $scope.isError = false;
+        $scope.isSuccess = true;
+        var val = $scope.computePalindrome($scope.lowerBound, $scope.upperBound);
+        if(val === Number.MIN_VALUE) {
+          $scope.solution = 'No Values found.';
+        }
+        else {
+          $scope.solution = 'The answer is: '+val;
+        }
+      }
+      else {
+        $scope.solution = '';
+        $scope.isError = true;
+        $scope.isSuccess = false;
+        $scope.error = 'The value for lower bound should be less than or equal to upper bound value.';
+      }
+
+    };
 
     $scope.computePalindrome = function(a, b) {
       for(var i=b; i>=a; i--) {

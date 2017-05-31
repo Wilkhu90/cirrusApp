@@ -1,1 +1,18 @@
-{{computePalindrome(100, 1996988)}}
+<form>
+  <div class="form-group">
+    <label>Lower Bound</label>
+    <input type="Number" required class="form-control" placeholder="Enter an integer" ng-model="lowerBound">
+  </div>
+  <div class="form-group">
+    <label>Upper Bound</label>
+    <input type="Number" required class="form-control" placeholder="Enter an integer" ng-model="upperBound">
+  </div>
+  <div class="form-group">
+    <div class="alert alert-danger" ng-show="isError">{{error}}</div>
+  </div>
+  <button type="submit" class="btn btn-primary" ng-click="computePalindromeUtil()">Submit</button>
+</form>
+
+<div ng-show="isSuccess" class="alert alert-success">
+  <label>{{solution}}</label>
+</div>
