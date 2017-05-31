@@ -1,4 +1,4 @@
-# cirrus-app
+# Cirrus app
 
 This app helps user to compute largest Palindrome between given range of values.
 
