@@ -17,11 +17,14 @@ angular.module('cirrusAppApp')
     $scope.isSuccess = false;
 
     $scope.computePalindromeUtil = function() {
+
       if($scope.lowerBound <= $scope.upperBound) {
+        var a = Math.ceil($scope.lowerBound);
+        var b = Math.floor($scope.upperBound);
         $scope.error = '';
         $scope.isError = false;
         $scope.isSuccess = true;
-        var val = $scope.computePalindrome($scope.lowerBound, $scope.upperBound);
+        var val = $scope.computePalindrome(a, b);
         if(val === Number.MIN_VALUE) {
           $scope.solution = 'No Values found.';
         }
