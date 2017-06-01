@@ -8,18 +8,18 @@
  * Controller of the cirrusAppApp
  */
 angular.module('cirrusAppApp')
-  .controller('AboutCtrl', function ($scope, $location) {
-    
+  .controller('AboutCtrl', function ($scope) {
+    $scope.aw = '';
 
-    if($location.path().includes('about')) {
-      var currentId = $location.path().substring(1, $location.path().length);
-      var scanIDs = document.getElementsByClassName('nav')[0].children;
-      for(var id in scanIDs) {
-        if(id === currentId) {
-          scanIDs[id].className = 'active';
-        }
+    var elements = document.getElementsByClassName('nav')[0];
+    if(elements) {
+      var tabs = elements.children;
+      for(var id in tabs) {
         if(id === 'main') {
-          scanIDs[id].className = '';
+          tabs[id].className = '';
+        }
+        if(id === 'about') {
+          tabs[id].className = 'active';
         }
       }
     }
