@@ -4,15 +4,23 @@ This app helps the user to compute the largest Palindrome between given range of
 
 ## Steps to run the application
 
+Make sure `node` and `bower` is already installed.
+
+## Steps to run the application
+
 1) Open terminal and clone the project by running `git clone https://github.com/Wilkhu90/cirrusApp.git`.
 
-2) Now, Run `npm install` followed by `bower install`, to install all the dependencies.
+2) Run `cd cirrusApp` and go inside the app folder.
+
+3) Now, Run `npm install` followed by `bower install`, to install all the dependencies.
 
 3) Finally, Run `node server.js`, open a browser and go to path, `http://localhost:4000/`.
 
-## Build & development
+## Development
 
-Run `grunt` for building and `grunt serve` for preview.
+1) Run `npm install -g grunt-cli bower yo generator-karma generator-angular`
+
+2) Run `grunt` for building and `grunt serve` for preview.
 
 ## Testing
 
