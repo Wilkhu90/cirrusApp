@@ -1,56 +1,79 @@
 <h3>Compute Largest Palindrome In The Given Range</h3>
-<form>
-  <div class="row">
-    <div class="col-md-6">
-      <div class="form-group">
-        <label>Lower Bound</label>
-        <input type="Number" step="0.00001" required class="form-control" placeholder="Enter an integer" ng-model="lowerBound">
+<div class="outer">
+  <div class="inner">
+    <form>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <h4>Lower Bound</h4>
+            <input type="Number" step="0.00001" required class="form-control" placeholder="Enter an integer" ng-model="lowerBound">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <h4>Upper Bound</h4>
+            <input type="Number" step="0.00001" required class="form-control" placeholder="Enter an integer" ng-model="upperBound">
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="col-md-6">
-      <div class="form-group">
-        <label>Upper Bound</label>
-        <input type="Number" step="0.00001" required class="form-control" placeholder="Enter an integer" ng-model="upperBound">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <div class="alert alert-danger" ng-show="isError">{{error}}</div>
+            <div class="form-inline">
+              <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-primary active" ng-click="setShowAll()">
+                  <input type="checkbox" autocomplete="off">
+                  <span class="glyphicon glyphicon-ok"></span>
+                </label>
+              </div>
+              <span>Would you like to see all the palindromes in this range? </span>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary" ng-click="computePalindromeUtil()">Compute</button>
+          </div>
+        </div>
+      </div>
+      <div class="row" ng-show="isSuccess">
+        <div class="col-md-12">
+          <div class="form-group">
+            <div class="alert alert-success">
+              <label>{{solution}}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="form-group">
-        <div class="alert alert-danger" ng-show="isError">{{error}}</div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary" ng-click="computePalindromeUtil()">Compute</button>
-      </div>
-    </div>
-  </div>
-  <div class="row" ng-show="isSuccess">
-    <div class="col-md-12">
-      <div class="form-group">
-        <div class="alert alert-success">
-          <label>{{solution}}</label>
+</div>
+<div class="outer2">
+  <div class="inner1">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <div ng-if="showAll" class="alert alert-success">
+            <label>These are all the Palindromes.</label>
+            <p>{{allPalindromes | json}}</p>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-md-12">
-      <div class="form-group">
-        <span>Would you like to see all the palindromes in the range? </span><input type="checkbox" ng-model="showAll">
-        <div ng-if="showAll" class="alert alert-success">
-          <p>{{allPalindromes | json}}</p>
-        </div>
+  </div>
+</div>
+<div class="outer3">
+  <div class="inner2">
+    <div class="row">
+      <div class="col-md-12">
+        <h4>Last Ten Computations</h4>
+      </div>
+      <div class="col-md-12">
+        <div class="alert alert-success"><div  ng-repeat="item in history | orderBy: '-id'">The largest palindrome between {{item.lowerbound}} and {{item.upperbound}} is {{item.largestPalindrome}}.</div></div>
       </div>
     </div>
-  </div>
-</form>
-<div class="row">
-  <div class="col-md-12">
-    <h3>Search History</h3>
-  </div>
-  <div class="col-md-12" ng-repeat="item in history | orderBy: '-id'">
-    <div class="alert alert-success">The largest palindrome between {{item.lowerbound}} and {{item.upperbound}} is {{item.largestPalindrome}}.</div>
   </div>
 </div>

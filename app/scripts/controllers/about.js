@@ -9,7 +9,26 @@
  */
 angular.module('cirrusAppApp')
   .controller('AboutCtrl', function ($scope) {
-    $scope.aw = '';
+    $scope.comp = false;
+    $scope.pal = false;
+    $scope.view = false;
+
+    $scope.showAllPal = function() {
+      $scope.pal = true;
+      $scope.comp = false;
+      $scope.view = false;
+    };
+    $scope.showCompute = function() {
+      $scope.comp = true;
+      $scope.pal = false;
+      $scope.view = false;
+    };
+
+    $scope.showHist = function() {
+      $scope.view = true;
+      $scope.comp = false;
+      $scope.pal = false;
+    };
 
     var elements = document.getElementsByClassName('nav')[0];
     if(elements) {

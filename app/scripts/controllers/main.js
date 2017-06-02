@@ -18,6 +18,11 @@ angular.module('cirrusAppApp')
     $scope.allPalindromes = [];
     $scope.history = [];
     $scope.index = 0;
+    $scope.showAll = false;
+
+    $scope.setShowAll = function() {
+      $scope.showAll = !$scope.showAll;
+    };
 
     //Checks for errors and then computes Palindrome accordingly.
     $scope.computePalindromeUtil = function() {
@@ -89,7 +94,9 @@ angular.module('cirrusAppApp')
     };
     //Get history in local storage
     $scope.getHistory = function() {
+      console.log($localStorage.history);
       if($localStorage.history) {
+        console.log($localStorage.history);
         $scope.history = $localStorage.history;
         $scope.index = $localStorage.history[$localStorage.history.length-1].id;
       }
@@ -111,5 +118,7 @@ angular.module('cirrusAppApp')
         }
       }
     }
-    $scope.getHistory();
+    if($localStorage.history && $localStorage.history.length > 0) {
+      $scope.getHistory();
+    }
   });

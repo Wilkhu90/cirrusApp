@@ -14,6 +14,7 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Josefin+Slab" />
   </head>
   <body ng-app="cirrusAppApp">
     <!--[if lte IE 8]>
@@ -21,8 +22,8 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="header">
-      <div class="navbar navbar-default" role="navigation">
+    <div class="header" id="navigation">
+      <div class="navbar navbar-inverse bg-inverse" role="navigation">
         <div class="container">
           <div class="navbar-header">
 
@@ -33,7 +34,7 @@
               <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="#!/">Cirrus App</a>
+            <a class="navbar-brand" href="#!/"><img height="50px" src="img/angular.png"/>Cirrus App</a>
           </div>
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
@@ -47,11 +48,11 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
     <div ng-view=""></div>
     </div>
 
-    <div class="footer">
+    <div class="footer navbar-inverse bg-inverse">
       <div class="container">
         <p>Developed by <a href="https://github.com/Wilkhu90/">Sumeet Wilkhu</a></p>
       </div>
