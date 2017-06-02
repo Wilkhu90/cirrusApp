@@ -70,6 +70,14 @@ describe('Controller: MainCtrl', function () {
       $scope.computePalindromeUtil();
       expect($scope.solution).toEqual('No Values found.');
     });
+    it('should compute largest palindrome between abc and def as Not defined', function() {
+      var $scope = {};
+      $controller('MainCtrl', { $scope: $scope });
+      $scope.lowerBound = 'abc';
+      $scope.upperBound = 'def';
+      $scope.computePalindromeUtil();
+      expect($scope.solution).toEqual('');
+    });
 
   });
 
