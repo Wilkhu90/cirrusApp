@@ -70,7 +70,7 @@ describe('Controller: MainCtrl', function () {
       $scope.computePalindromeUtil();
       expect($scope.solution).toEqual('No Values found.');
     });
-    it('should compute largest palindrome between abc and def as Not defined', function() {
+    it('should compute largest palindrome between abc and def as Empty', function() {
       var $scope = {};
       $controller('MainCtrl', { $scope: $scope });
       $scope.lowerBound = 'abc';

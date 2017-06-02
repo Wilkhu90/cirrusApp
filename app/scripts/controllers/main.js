@@ -26,6 +26,7 @@ angular.module('cirrusAppApp')
 
     //Checks for errors and then computes Palindrome accordingly.
     $scope.computePalindromeUtil = function() {
+      console.log(Math.abs($scope.lowerBound - $scope.upperBound));
       if($scope.lowerBound <= $scope.upperBound && $scope.upperBound <= Number.MAX_VALUE) {
         var a = Math.ceil($scope.lowerBound);
         var b = Math.floor($scope.upperBound);
